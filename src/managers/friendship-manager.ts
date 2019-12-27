@@ -1,7 +1,8 @@
 import { Friendship } from 'wechaty'
+import { FileBox }  from 'file-box'
 
 const NEW_FRIEND_GREETING = [
-  '您好！我是奇绩创坛的林一凡[Hey]之后报名、面试的相关问题都可以问我。我们春季创业营会在2020年1月中旬开始邀请项目面试，越早填写报名表（apply.miracleplus.com）我们的团队会越早看到，如果您方便的话，可以最近准备填写完整和提交报名表啦。', '关注到您注册了我们春季创业营的报名表但是还没有填写完成，您具体是因为什么原因还没填写完报名表呀？',
+  '您好！这里是奇绩创坛小助手。\n奇绩创坛前身是YC中国。希望通过【一笔标准化投资、三个月陆奇博士亲自参与的加速营、触达上千位一线投资人的路演日】的方式，用投资的方式帮助创业者越过早期创业的艰难。', '如果您是创业者，可以具体介绍一下您的项目。比如项目发展到什么阶段了、是否有融资需求等，我们会尽我所能提供帮助。',
 ]
 
 export class FriendshipManager {
@@ -15,6 +16,8 @@ export class FriendshipManager {
       for (const greeting of NEW_FRIEND_GREETING) {
         await contact.say(greeting)
       }
+      const fileBox = FileBox.fromUrl('https://phaedodata-1253507825.cos.ap-beijing.myqcloud.com/YCCooperate/WechatIMG9.jpeg')
+      await contact.say(fileBox)
     }
   }
 
